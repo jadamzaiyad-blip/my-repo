@@ -1,0 +1,352 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #f8f9fa;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Hero Banner */
+.hero {
+    height: 60vh;
+    background: url('../images/banner.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.hero-content {
+    z-index: 1;
+}
+
+.btn-primary {
+    margin-top: 15px;
+    background-color: #007bff;
+    padding: 12px 25px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* General Section Style */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #007bff;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    justify-items: center;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-card p {
+    padding: 12px 10px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: #ff4081;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+}
+
+/* Overlay Hover for Buy Now */
+.buy-btn {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.product-card:hover .buy-btn {
+    display: inline-block;
+}
+
+/* Section Buttons */
+.button-container {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    text-align: center;
+    color: #555;
+}
+
+/* ===== DIY Section ===== */
+.diy-section {
+    padding: 40px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.diy-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.diy-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    justify-items: center;
+    align-items: stretch;
+}
+
+.diy-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.diy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ===== Video Wrapper & Overlay ===== */
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    border-radius: 10px;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease;
+    border-radius: 10px;
+}
+
+.play-overlay.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Play Icon */
+.play-icon {
+    font-size: 3rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Animation */
+.play-overlay:hover .play-icon {
+    transform: scale(1.2);
+    color: gold;
+}
+
+.diy-card h3 {
+    margin: 15px 10px 10px;
+    font-size: 1.2rem;
+}
+
+.diy-card p {
+    margin: 0 10px 15px;
+    font-size: 0.95rem;
+    color: #555;
+    flex-grow: 1;
+}
+
+.purchase-btn {
+    margin: 0 0 15px;
+    padding: 8px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    align-self: center;
+    transition: background-color 0.3s;
+}
+
+.purchase-btn:hover {
+    background-color: #0056b3;
+}
+
+.see-more-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.see-more-btn:hover {
+    background-color: #1e7e34;
+}
+
+/* ===== DIY Responsive ===== */
+@media (max-width: 1200px) {
+    .diy-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .diy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .video-wrapper {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .diy-grid {
+        grid-template-columns: 1fr;
+    }
+    .video-wrapper {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-wrapper {
+        height: 150px;
+    }
+}

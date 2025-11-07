@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SANAA – DIY Projects</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ===== DIY PAGE OVERRIDES (matches SANAA theme) ===== */
+    :root {
+      --sanaa-blue: #007bff;
+      --sanaa-green: #28a745;
+      --sanaa-bg: #f9f9f9;
+      --card-radius: 12px;
+    }
+
+    /* Banner */
+    .diy-hero {
+      background: url('images/banner-diy.jpg') center/cover no-repeat;
+      height: 44vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #fff;
+      text-align: center;
+    }
+    .diy-hero::after {
+      content:"";
+      position:absolute; inset:0;
+      background: rgba(0,0,0,0.45);
+    }
+    .diy-hero-content { z-index:2; }
+    .diy-hero h1 { font-size: 2.2rem; margin-bottom:8px; }
+    .diy-hero p  { opacity: .95; margin:0; }
+
+    /* Filters */
+    .filters {
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin:28px 12px;
+    }
+    .filter-btn {
+      background: var(--sanaa-blue);
+      color: #fff;
+      padding:8px 16px;
+      border-radius: 999px;
+      cursor:pointer;
+      font-weight:700;
+      border: none;
+      transition: transform .12s, background .12s;
+    }
+    .filter-btn.active { background: var(--sanaa-green); transform: translateY(-2px); }
+
+    /* Grid */
+    .videos-wrapper {
+      max-width: 1400px;
+      margin: 0 auto 60px;
+      padding: 0 18px;
+    }
+    .video-grid {
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:22px;
+    }
+    .video-card {
+      background: #fff;
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,.06);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .video-thumb {
+      width:100%;
+      height: 220px;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-thumb video {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .video-info { padding:12px; text-align:left; }
+    .video-info h3 { margin:0 0 8px; font-size:1.05rem; color:#222; }
+    .video-info p { margin:0 0 12px; color:#555; font-size:.95rem; }
+    .whatsapp-btn {
+      display:inline-block;
+      margin:0 12px 16px;
+      background:var(--sanaa-green);
+      color:#fff;
+      padding:8px 14px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+    }
+    .whatsapp-btn:hover { background: #1e7e34; }
+
+    /* small screens */
+    @media (max-width: 1100px) { .video-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 900px)  { .video-grid { grid-template-columns: repeat(2,1fr); } .diy-hero { height: 34vh; } }
+    @media (max-width: 560px)  { .video-grid { grid-template-columns: 1fr; } .video-thumb { height: 180px; } .diy-hero h1 { font-size:1.5rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header: keep your header, updated snippet is below if needed -->
+  <header>
+    <div class="logo">SANAA</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="classic-wear.html">Classic Wear</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="diy.html" class="active">DIY</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <section class="diy-hero">
+    <div class="diy-hero-content">
+      <h1>Explore DIY Ideas & Skills</h1>
+      <p>All categories shown by default — click a category to filter</p>
+    </div>
+  </section>
+
+  <!-- Filters -->
+  <div class="filters" aria-label="DIY category filters">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="business">💼 Business Ideas</button>
+    <button class="filter-btn" data-filter="crafts">🎨 Crafts</button>
+    <button class="filter-btn" data-filter="homehacks">🏠 Home Hacks</button>
+    <button class="filter-btn" data-filter="food">🍴 Food & Kitchen</button>
+  </div>
+
+  <!-- Videos grid -->
+  <div class="videos-wrapper">
+    <div class="video-grid" id="videoGrid">
+
+      <!-- Business examples -->
+      <div class="video-card" data-category="business">
+        <div class="video-thumb">
+          <video src="videos/diy1.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Soap-Making Business</h3>
+          <p>Step-by-step soap production for small business.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Soap-Making%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="video-card" data-category="business">
+        <div class="video-thumb">
+          <video src="videos/diy2.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>T-Shirt Printing Startup</h3>
+          <p>Print-on-demand basics to start selling locally.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20T-Shirt%20Printing%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Crafts examples -->
+      <div class="video-card" data-category="crafts">
+        <div class="video-thumb">
+          <video src="videos/d.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Paper Flower Design</h3>
+          <p>Create event decorations with cheap materials.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Paper%20Flower%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="video-card" data-category="crafts">
+        <div class="video-thumb">
+          <video src="videos/diy4.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Bead Bracelet Making</h3>
+          <p>Design and sell handmade jewelry.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Bead%20Bracelet%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Home Hacks examples -->
+      <div class="video-card" data-category="homehacks">
+        <div class="video-thumb">
+          <video src="videos/diy5.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Small Space Storage</h3>
+          <p>Simple hacks to organize and maximize space.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Storage%20Hacks%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="video-card" data-category="homehacks">
+        <div class="video-thumb">
+          <video src="videos/diy6.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Wall Decor Ideas</h3>
+          <p>Transform plain walls into a statement.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Wall%20Decor%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <!-- Food examples -->
+      <div class="video-card" data-category="food">
+        <div class="video-thumb">
+          <video src="videos/food1.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Homemade Snacks</h3>
+          <p>Recipes and packaging tips to sell locally.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Snacks%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="video-card" data-category="food">
+        <div class="video-thumb">
+          <video src="videos/food2.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="video-info">
+          <h3>Fruit Juice Business</h3>
+          <p>Start a fresh juice stand with minimal equipment.</p>
+          <a class="whatsapp-btn"
+             href="https://wa.me/2347077940039?text=I%20want%20to%20buy%20the%20Juice%20DIY%20video">Buy on WhatsApp</a>
+        </div>
+      </div>
+
+    </div> <!-- /video-grid -->
+  </div> <!-- /videos-wrapper -->
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SANAA. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Filter script -->
+  <script>
+    (function () {
+      const buttons = document.querySelectorAll('.filter-btn');
+      const cards   = document.querySelectorAll('.video-card');
+
+      function setActiveBtn(btn) {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+
+      function showFilter(filter) {
+        if (filter === 'all') {
+          cards.forEach(c => c.style.display = '');
+        } else {
+          cards.forEach(c => {
+            c.dataset.category === filter ? c.style.display = '' : c.style.display = 'none';
+          });
+        }
+        // scroll to grid for better UX on mobile
+        document.getElementById('videoGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          setActiveBtn(btn);
+          showFilter(btn.dataset.filter);
+        });
+      });
+
+      // ensure videos remain muted and autoplay when shown (some browsers stop autoplay on display changes)
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          document.querySelectorAll('video').forEach(v => { v.muted = true; v.play().catch(()=>{}); });
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>
